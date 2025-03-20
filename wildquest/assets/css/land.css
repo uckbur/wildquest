@@ -1,0 +1,177 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar Styles */
+header {
+    background-color:#013220;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #013220;
+    padding: 10px 20px;
+}
+
+.nav-left a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-btn {
+    background: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+/* Home Section */
+#home {
+    text-align: center;
+    padding: 50px 0;
+    background-color:#325e3bf0;
+}
+
+#home h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#home p {
+    font-size: 1.2em;
+}
+
+/* Activity Section */
+#activity {
+    padding: 50px 0;
+    background-color:#325e3be2 ;
+    text-align: center;
+}
+
+#activity h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+/* Card Styles */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.card .booking{
+    padding: 9px;
+    border-radius: 6px;
+    color:#fff;
+    background-color: #013220;
+    text-decoration: none;
+    
+}
+
+
+.card {
+    background-color: #92ad94;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 280px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 1em;
+    color: #555;
+}
+
+.card .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #055b29da;
+    margin-top: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Booking Section */
+#booking {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #325e3bf0;
+}
+
+#booking h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+#booking p{
+    height: 50px;
+}
+
+#booking button {
+    background-color: #013220;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#booking button:hover {
+    background-color: #248f67ae;
+}
+#booking button a{
+    color:#fff;
+    text-decoration: none;
+}
+#booking button a{
+    color:#fff;
+    text-decoration: none;
+}

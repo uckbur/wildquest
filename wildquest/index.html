@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <title>Wild Quest</title>
+        <link rel="icon" type="image" href="assets/svg/Wild Quest logo.svg"> 
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    </head>
+    <body class="is-preload">
+
+        <section id="sidebar">
+            <div class="inner">
+                <nav>
+                  <div class="container">
+                    <aside class="sidebar">
+                      <div class ="animate__animated animate__fadeInUp logo">
+                        <img src="assets/svg/Wild Quest logo.svg" alt="Wild Quest logo">
+                      </div>
+                    <ul>
+                        <li class="animate__animated animate__fadeInUp"><a href="#home">Home</a></li>
+                        <li class="animate__animated animate__fadeInUp"><a href="#act">Activities</a></li>
+                        <li class="animate__animated animate__fadeInUp"><a href="#contact">Contact</a></li>
+                        <li class="animate__animated animate__fadeInUp"><a href="#review">Review</a></li>   
+                    </ul>
+                    </aside>
+                </nav>
+            </div>
+        </section>
+
+        <div id="wrapper">
+
+            <!--Home-->
+            <section id="home" class="wrapper-style1 fullscreen">
+                <div class="inner">
+				<div id="home">
+                <div class="inner" style="background-image: url('assets/images/home.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; height: 20cm; position: relative;">
+                
+                    <h1 class="animate__animated animate__bounce animate__infinite	infinite"><i><b>WILD QUEST</b></i></h1>
+
+                    <p class="animate__animated animate__fadeInUp">Wild Quest offers an incredible experiance in <a href="https://www.bing.com/search?q=mauritius&cvid=4d8b3b3a345f4a99b1a524d43fec7b9d&gs_lcrp=EgRlZGdlKgYIABBFGDsyBggAEEUYOzIGCAEQRRg9MgYIAhBFGD0yBggDEEUYPdIBCDQ0NjJqMGo0qAIIsAIB&FORM=ANAB01&PC=W232"><b>Mauritius</b></a><br />
+                        Join our guided hiking tours to discover sturnning</br>
+                        landscapes and unique wildlife, whether you're a<br>
+                        beginner or an expert.</p>
+                    <ul class="actions">
+                        <il><a href="About.html" class="animate__animated animate__fadeInUp button">about Us</a></il>
+                    </ul>
+                </div>
+            </section>
+
+            <!--Activities-->
+			<section id="act" class="animate__slideInRight wrapper style2 spotlights">
+				<section>
+					<a href="#" class="image"><img src="assets/images/land act.jpg" alt="" data-position="center center" height="369px" width="425px" /></a>
+					<div class="content">
+						<div class="inner">
+							<h2>Land Activities</h2>
+							<p>Explore Mauritius through thrilling hikes, quad biking, waterfall trips, and camping under the stars. Adventure and nature combined for an unforgettable experience!</p>
+							<ul class="actions">
+								<li><a href="land.html" class="button">Explore</a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<a href="#" class="image"><img src="assets/images/ile-aux-benitiers.jpg" alt="" data-position="top center" height="369px" width="425px" /></a>
+						<div class="content">
+							<div class="inner">
+								<h2>Sea Activities</h2>
+								<p>Enjoy catamaran tours, sea activities, and island trips in the beautiful waters of Mauritius. Relax and explore the ocean like never before!</p>
+								<ul class="actions">
+									<li><a href="Seaact.html" class="button">Explore</a></li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+                    <!-- Three -->
+					<section id="contact" class="wrapper style3 fade-up">
+						<div class="inner">
+							<div class="us"><h2>Contact us</h2>
+							<p><br> Need more details? Contact us, and we’ll get back to you as soon as possible.</p>
+						</div>
+							<div class="split style1">
+								<section>
+									<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+										<div class="fields">
+											<div class="field half">
+												<label for="Firstname">First name</label>
+												<input type="text" name="Firstname" id="Firstname" />
+
+												<div class="field half">
+													<label for="Lastname">Last name</label>
+													<input type="text" name="Lastname" id="Lastname"/>
+												</div>
+											</div>
+											<div class="field half">
+												<label for="email">Email</label>
+												<input type="text" name="Email" id="email" />
+											</div>
+											<div class="field">
+												<label for="message">Message</label>
+												<textarea name="Message" id="message" rows="5"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><button href="" class="button submit" type="submit">Send Message</button></li>
+										</ul>
+									</form>
+									<?php 
+include("database/db_connect.php");
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  $firstname = $_POST['Firstname'];  
+  $lastname = $_POST['Lastname'];
+  $email = $_POST['Email'];
+  $message = $_POST['Message'];
+
+ 
+    mysqli_query($conn, "INSERT INTO `tbl_queries`(`firstname`, `lastname`, `email`, `message`, `dateAdded`) 
+VALUES ('$firstname','$lastname','$email','$message',CURDATE())") or die("An error occurred!");
+echo '<script type="text/javascript">    
+	
+window.onload = function () { 
+Swal.fire({
+  title: "Message sent successfully",
+text: "Our team will contact you soon, thanks! ",
+  icon: "success"
+}); }
+
+</script>'; 
+  }
+
+?>
+								</section>
+								<section>
+									<ul class="contact">
+										<li>
+											<h4>Email</h4>
+											<a href="#">WildQuest@gmail.com</a>
+										</li>
+										<li>
+											<h4>Phone</h4>
+											<span>58118570</span>
+										</li>
+										<h4>Social</h4>
+											<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+											<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+											<ul class="social">
+											  <li><a href="https://www.tiktok.com/@wild.quest?_t=ZM-8tOWxw3SyPu&_r=1"><ion-icon name="logo-tiktok"></ion-icon></a></li>
+											  <li><a href="https://www.facebook.com/share/18Ztmhv1PR/?mibextid=wwXIfr"><ion-icon name="logo-facebook"></ion-icon></a></li>
+											  <li><a href="https://www.instagram.com/wildquest2025?igsh=aXozMHRrMXE2OXk2"><ion-icon name="logo-instagram"></ion-icon></a></li>
+											</ul>
+										</li>
+										<li>
+											<h4>Address</h4>
+											<span>Wild Quest<br />
+											1CyberCity, Ebene,<br />
+											Mauritius</span>
+										</li>
+										<div class="container">
+											<div class="wrapper">
+												<div class="map-container">
+													<iframe
+														src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.2679470209696!2d57.49092567505893!3d-20.2477192812133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c5b1c68af63eb%3A0xeb8066473fca63a!2s1CyberCity!5e0!3m2!1sen!2smu!4v1739167885715!5m2!1sen!2smu" width="350" height="160"
+														style="border:0;"
+														allowfullscreen=""
+														loading="lazy">
+													</iframe>
+												</div>
+											</div>
+										</div>
+									</div>
+									</ul>
+								</section>
+									
+					
+					<!-- Four -->
+					<section id="review" class="wrapper style3 fade-up">
+                <div class="inner reviews">
+                    <h2>Customer Reviews</h2>
+                    <div class="review">
+                        <p class="stars">★★★★★</p>
+                        <p class="author">John Doe</p>
+                        <p>"This is the best adventure experience I’ve ever had! Highly recommended!"</p>
+                    </div>
+                    <div class="review">
+                        <p class="stars">★★★★☆</p>
+                        <p class="author">Jane Smith</p>
+                        <p>"Great trip, but I wish we had more time at the waterfall!"</p>
+                    </div>
+                    <div class="review">
+                        <p class="stars">★★☆☆☆</p>
+                        <p class="author">Bob Johnson</p>
+                        <p>"The quad biking was fun, but the weather wasn't great that day."</p>
+                    </div>
+                </div>
+            </section>
+							</div>
+						</div>
+					</section>
+					
+				
+
+					
+        
+						
+
+            <!-- Footer -->
+			<footer id="footer" class="wrapper style1-footer">
+				<div class="inner">
+					<ul class="home">
+						<li>&copy; 2025 Wild Quest. All Rights Reserved.</li>
+					</ul>
+				</div>
+			</footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"> </script>
+    </body>
+</html>

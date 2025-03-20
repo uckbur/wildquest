@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Quest Activity</title>
+    <link rel="stylesheet" href="assets/css/SeaAct.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        
+            <nav class="navbar">
+                <div class="nav-left">
+                    <a href="index.html">Home</a>
+                    <a href="land.html"> Land Activity</a>
+                    <a href="new.html">Booking</a>
+                </div>
+                <div class="nav-right">
+                    <input type="text" class="search-bar" placeholder="Search activities...">
+                    <button class="search-btn">🔍</button>
+                </div>
+            </nav>
+            
+        
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to Our Activity Center</h1>
+        <p>Explore a variety of exciting sea activities!</p>
+    </section>
+
+    <!-- Activity Section -->
+    <section id="activity">
+        <h2>Sea Activities</h2>
+        <div class="cards-container">
+            <div class="card">
+                <img src="assets/images/catamaran.jpg" alt="Hiking">
+                <h3>Catamaran</h3>
+                <p>Sail in style on a relaxing catamaran cruise with stunning ocean views in Mauritius!</p>
+                <p class="price">MUR1800</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/parasailing.jpg" alt="Cycling">
+                <h3>Parasailing</h3>
+                <p>Fly high above the sea and enjoy breathtaking aerial views with parasailing!</p>
+                <p class="price">MUR1500</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/tube ride.jpg" alt="Safari">
+                <h3>Tube Ride</h3>
+                <p>Hold on tight for a thrilling and fun-filled tube ride on the water in our beautiful island!</p>
+                <p class="price">MUR550</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/underseawalk.jpg" alt="Rock Climbing">
+                <h3>Undersea Walk</h3>
+                <p>Walk underwater and explore marine life up close in a unique adventure!</p>
+                <p class="price">MUR1175</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/speedboat.jpg" alt="Horse Riding">
+                <h3>Speed-boat Trip</h3>
+                <p>Enjoy a memorable journey on four islands in Mauritius including lunch!</p>
+                <p class="price">MUR1700</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/fishing.jpg" alt="Camping">
+                <h3>Deep-Sea Fishing</h3>
+                <p>Experience the thrill of deep-sea fishing and reel in big game fish off Mauritius!</p>
+                <p class="price">MUR1975</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.querySelector(".search-bar").addEventListener("keyup", function() {
+            let input = this.value.toLowerCase().trim();
+            let activities = document.querySelectorAll(".card");
+    
+            activities.forEach(activity => {
+                let name = activity.querySelector("h3").textContent.toLowerCase();
+                if (name.includes(input)) {
+                    activity.style.display = "block";
+                } else {
+                    activity.style.display = "none";
+                }
+            });
+        });
+    </script>
+
+    <!-- Booking Section -->
+    <section id="booking">
+        <h2>Book Your Activity</h2>
+        <p>Select your favorite activity and book it online!</p>
+        <div>
+        <button><a href="new.html">Book Now</a></button>
+    </div>
+    </section>
+</body>
+</html>

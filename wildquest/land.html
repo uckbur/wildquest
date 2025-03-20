@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Quest Activity</title>
+    <link rel="stylesheet" href="assets/css/land.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <nav class="navbar">
+                <div class="nav-left">
+                    <a href="index.html">Home</a>
+                    <a href="Seaact.html">Sea activity</a>
+                    <a href="new.html">Booking</a>
+                </div>
+                <div class="nav-right">
+                    <input type="text" class="search-bar" placeholder="Search activities...">
+                    <button class="search-btn">🔍</button>
+                </div>
+            </nav>
+            
+            
+        
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to Our Activity Center</h1>
+        <p>Explore a variety of exciting land activities!</p>
+    </section>
+
+    <!-- Activity Section -->
+    <section id="activity">
+        <h2 class="animate__animated animate__fadeInUp">Land Activities</h2>
+        <div class="cards-container">
+            <div class="card">
+                <img src="assets/images/camping.jpg" alt="Hiking and class">
+                <h3>Mountain Hiking and Camping</h3>
+                <p>Explore scenic trails and enjoy the beauty of nature.</p>
+                <p class="price">MUR2500</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+                
+            
+            </div>
+            <div class="card">
+                <img src="assets/images/cheval.jpg" alt="horse riding">
+                <h3>Horse-riding</h3>
+                <p>Ride through picturesque trails on horseback with friendly guide in the North.</p>
+                <p class="price">MUR2000</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/tyrollienne.jpeg" alt="Zipline">
+                <h3>Zipline</h3>
+                <p>Soar through the air and enjoy stunning jungle views on our thrilling zipline adventure!</p>
+                <p class="price">MUR1000</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/sept Cascade.jpg" alt="sept Cascade">
+                <h3>Sept Cascade</h3>
+                <p>Test your strength and skills on steep cliffs where it end with seven waterfalls.</p>
+                <p class="price">MUR875</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/quad img.jpg" alt="Quad biking">
+                <h3>Quad Biking</h3>
+                <p>Ride through rugged trails on an adrenaline-pumping quad bike adventure!</p>
+                <p class="price">MUR2800</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/animal feeding.jpg" alt="Animal feeding">
+                <h3>Animal feeding</h3>
+                <p>Enjoy a hands-on experience feeding and interacting with friendly animals!</p>
+                <p class="price">MUR500</p>
+                <div>
+                    <a href="new.html"<button class="booking">Book Now</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.querySelector(".search-bar").addEventListener("keyup", function() {
+            let input = this.value.toLowerCase().trim();
+            let activities = document.querySelectorAll(".card");
+    
+            activities.forEach(activity => {
+                let name = activity.querySelector("h3").textContent.toLowerCase();
+                if (name.includes(input)) {
+                    activity.style.display = "block";
+                } else {
+                    activity.style.display = "none";
+                }
+            });
+        });
+    </script>
+
+    <!-- Booking Section -->
+    <section id="booking">
+        <h2>Book Your Activity</h2>
+        <p>Select your favorite activity and book it online!</p>
+        <button><a href="new.html">Book Now</a></button>
+    </section>
+</body>
+</html>
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wild Quest Booking</title>
+  <link rel="stylesheet" href="assets/css/new.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <!-- Header with Logo -->
+  <header>
+    
+    <div class="adjust">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="land.html">Activities</a></li>
+        <li><a href="index.html">Contact</a></li>
+        <li><a href="viewBookings.html">Booking tables</a></li>
+      </ul>
+    </div>
+      
+  </header>
+
+  <!-- Navigation Bar -->
+  
+
+  <!-- Booking Form Section -->
+  <section id="booking">
+    <h2>Book Your Adventure</h2>
+    <form class="" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+    <form id="booking-form">
+      <label for="activity">Choose an Activity:</label>
+      <select id="activity"name="activity">
+        <option value="zipline">Zipline</option>
+        <option value="quadbike">Quad Bike</option>
+        <option value="catamaran">Catamaran</option>
+        <option value="undersea">Undersea Walk</option>
+        <option value="Houseriding">Houseriding</option>
+        <option value="Rock climbing">Rock climbing</option>
+        <option value="Mountain hiking and Camping">Mountain hiking and Camping</option>
+        <option value="Animal Feeding">Animal Feeding</option>
+        <option value="Tube Ride">Tube Ride</option>
+        <option value="Parasailing">Parasailing</option>
+        <option value="Speed-boat Trip">Speed-boat Trip</option>
+        <option value="zipline">Deep-sea Fishing</option>
+      </select>
+      
+    
+
+      <label for="datebooking">Booking Date:</label>
+      <input type="date" name = "datebooking" id="date" required>
+
+      <label for="participant">Number of Participants:</label>
+      <input type="number" name = "participant" id="participant" min="1" max="10" required>
+
+      <label for="payment">Payment Method:</label>
+      <select id="payment"
+      name="payment">
+        <option value="MCB Juice">MCB Juice</option>
+        <option value="Pay on site">Pay on site</option>
+      </select>
+      
+
+      <button type="submit">Book Now</button>
+    </form>
+    </form>
+  </section>
+  <?php 
+include("database/db_connect.php");
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  $activity = $_POST['activity'];  
+  $date = $_POST['datebooking'];
+  $participant = $_POST['participant'];
+  $payment = $_POST['payment'];
+
+ 
+    mysqli_query($conn, "INSERT INTO `tbl_booking`(`activity`, `datebooking`, `participant`, `payment`, `DateUpdated`) 
+VALUES ('$activity','$date','$participant','$payment',CURDATE())") or die("An error occurred!");
+echo '<script type="text/javascript">    
+	
+window.onload = function () { 
+Swal.fire({
+  title: "Booking successfully",
+text: "Our team will contact you soon, thanks! ",
+  icon: "success"
+}); }
+
+</script>'; 
+  }
+
+?>
+
+  <footer>
+    <p>© 2025 Wild Quest. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
